@@ -5,6 +5,8 @@ import ListarFormasPagamentoPage from "./pages/ListarFormasPagamentoPage";
 import AddFormaPagamentoPage from "./pages/AddFormaPagamentoPage";
 import DeletarFormaPagamentoPage from "./pages/DeletarFormaPagamentoPage";
 import HomePage from "./pages/HomePage";
+import FinalizarPagamentoPage from "./pages/FinalizarPagamentoPage";
+import AvalieNos from "./components/Geral/Avaliar";
 
 function App() {
   return (
@@ -33,6 +35,9 @@ function App() {
                 Deletar Forma de Pagamento
               </Link>
             </li>
+            <li>
+              <Link to="/finalizar-compra">Finalizar Compra</Link>
+            </li>
           </ul>
         </nav>
 
@@ -54,6 +59,11 @@ function App() {
             path="/formas-pagamento/delete"
             element={<DeletarFormaPagamentoPage />}
           />
+          <Route
+            path="/finalizar-compra"
+            element={<FinalizarPagamentoPage />}
+          />
+          <Route path="/avaliar" element={<AvalieNos />} />
         </Routes>
       </div>
     </Router>

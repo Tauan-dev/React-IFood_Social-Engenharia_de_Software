@@ -47,6 +47,10 @@ const ListarFormasPagamento = () => {
     setOpenPixDialog(false);
   };
 
+  const handleFinalizarCompra = (formaPagamento) => {
+    navigate("/finalizar-compra", { state: { formaPagamento } });
+  };
+
   return (
     <Container maxWidth="md" style={{ marginTop: "24px" }}>
       <Grid container spacing={3}>
@@ -98,6 +102,7 @@ const ListarFormasPagamento = () => {
             </Button>
             <Dialog open={openPixDialog} onClose={handleClosePixDialog}>
               <DialogTitle>
+                <Typography variant="h6">Estamos quase lá!</Typography>
                 <IconButton
                   edge="end"
                   color="inherit"
@@ -115,6 +120,15 @@ const ListarFormasPagamento = () => {
                   style={{ width: "100%" }}
                 />
               </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={handleClosePixDialog}
+                  variant="contained"
+                  color="primary"
+                >
+                  Finalizar compra
+                </Button>
+              </DialogActions>
             </Dialog>
             <Box style={{ marginTop: "16px" }}>
               {formasPagamento.map((fp) => (
@@ -129,6 +143,7 @@ const ListarFormasPagamento = () => {
                     width: "100%",
                     textTransform: "none",
                   }}
+                  onClick={() => handleFinalizarCompra(fp)}
                 >
                   {fp.DCR_FORMA_PAGTO}
                 </Button>
