@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ListarFormasPagamentoPage from "./pages/ListarFormasPagamentoPage";
 import AddFormaPagamentoPage from "./pages/AddFormaPagamentoPage";
 import DeletarFormaPagamentoPage from "./pages/DeletarFormaPagamentoPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -36,13 +37,7 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-
-
-
-
-
-          
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/formas-pagamento"
             element={<h1>Formas de Pagamento</h1>}

@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
 import api from "../../api";
+import {
+  Container,
+  Box,
+  Typography,
+  IconButton,
+  Paper,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  Divider,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const DeletarFormaPagamento = () => {
   const [formasPagamento, setFormasPagamento] = useState([]);
@@ -29,16 +42,33 @@ const DeletarFormaPagamento = () => {
   };
 
   return (
-    <ul>
-      {formasPagamento.map((fp) => (
-        <li key={fp.COD_FORMA_PAGTO}>
-          {fp.DCR_FORMA_PAGTO}
-          <button onClick={() => handleDelete(fp.COD_FORMA_PAGTO)}>
-            Deletar
-          </button>
-        </li>
-      ))}
-    </ul>
+    <Container maxWidth="md" style={{ marginTop: "24px" }}>
+      <Paper elevation={3} style={{ padding: "24px" }}>
+        <Typography variant="h6" gutterBottom>
+          Formas de Pagamento
+        </Typography>
+        <List>
+          {formasPagamento.map((fp, index) => (
+            <React.Fragment key={fp.COD_FORMA_PAGTO}>
+              <ListItem>
+                <ListItemText primary={fp.DCR_FORMA_PAGTO} />
+                <ListItemSecondaryAction>
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => handleDelete(fp.COD_FORMA_PAGTO)}
+                    sx={{ color: "red" }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+              {index < formasPagamento.length - 1 && <Divider />}
+            </React.Fragment>
+          ))}
+        </List>
+      </Paper>
+    </Container>
   );
 };
 
