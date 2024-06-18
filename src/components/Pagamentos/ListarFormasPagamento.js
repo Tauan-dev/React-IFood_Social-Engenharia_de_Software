@@ -19,7 +19,6 @@ import {
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import PaymentIcon from "@mui/icons-material/Payment";
 import CloseIcon from "@mui/icons-material/Close";
-import Header from "../Geral/Header";
 
 const ListarFormasPagamento = () => {
   const [formasPagamento, setFormasPagamento] = useState([]);
@@ -49,6 +48,11 @@ const ListarFormasPagamento = () => {
 
   const handleFinalizarCompra = (formaPagamento) => {
     navigate("/finalizar-compra", { state: { formaPagamento } });
+  };
+
+  const handlePixFinalizarCompra = () => {
+    setOpenPixDialog(false);
+    navigate("/avaliar");
   };
 
   return (
@@ -122,7 +126,7 @@ const ListarFormasPagamento = () => {
               </DialogContent>
               <DialogActions>
                 <Button
-                  onClick={handleClosePixDialog}
+                  onClick={handlePixFinalizarCompra}
                   variant="contained"
                   color="primary"
                 >

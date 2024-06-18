@@ -7,6 +7,8 @@ import DeletarFormaPagamentoPage from "./pages/DeletarFormaPagamentoPage";
 import HomePage from "./pages/HomePage";
 import FinalizarPagamentoPage from "./pages/FinalizarPagamentoPage";
 import AvalieNos from "./components/Geral/Avaliar";
+import CriarEntregaPage from "./pages/CriarEntregaPage";
+import ListarEntregaPage from "./pages/ListarEntregaPage";
 
 function App() {
   return (
@@ -17,9 +19,7 @@ function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/formas-pagamento">Formas de Pagamento</Link>
-            </li>
+
             <li>
               <Link to="/formas-pagamento/listar">
                 Listar Formas de Pagamento
@@ -38,15 +38,17 @@ function App() {
             <li>
               <Link to="/finalizar-compra">Finalizar Compra</Link>
             </li>
+            <li>
+              <Link to="/cria-entrega">Delegar Entrega</Link>
+            </li>
+            <li>
+              <Link to="/listar-entrega">Listar Entrega</Link>
+            </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route
-            path="/formas-pagamento"
-            element={<h1>Formas de Pagamento</h1>}
-          />
           <Route
             path="/formas-pagamento/listar"
             element={<ListarFormasPagamentoPage />}
@@ -64,6 +66,8 @@ function App() {
             element={<FinalizarPagamentoPage />}
           />
           <Route path="/avaliar" element={<AvalieNos />} />
+          <Route path="/cria-entrega" element={<CriarEntregaPage />} />
+          <Route path="/listar-entrega" element={<ListarEntregaPage />} />
         </Routes>
       </div>
     </Router>
